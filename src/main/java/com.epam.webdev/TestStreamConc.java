@@ -11,21 +11,29 @@ public class TestStreamConc {
     List<Integer> list =  initList(8192);
         System.out.println(list.size());
         CleaverIntComparator comparator;
-    list.parallelStream().sorted(comparator = new CleaverIntComparator()).toArray();
+        list.parallelStream().sorted(comparator = new CleaverIntComparator()).toArray();
         System.out.println(comparator.getThreadscont());
         System.out.println(comparator.getThreads());
 
-        BinarySeatcherInteger binarySeatcher = new BinarySeatcherInteger();
-        System.out.println(binarySeatcher.search(100000));
+        System.out.println("**********************************");
+        List<Integer> list2 =  initList(8193);
+        System.out.println(list2.size());
+        list2.parallelStream().sorted(comparator = new CleaverIntComparator()).toArray();
+        System.out.println(comparator.getThreadscont());
+        System.out.println(comparator.getThreads());
+        System.out.println("**********************************");
 
-        BinarySeatcherWrapper binarySeatcherForWrapper = new BinarySeatcherWrapper();
-        System.out.println(binarySeatcherForWrapper.search(100000));
+        BinarySeatcherInteger binarySearcher = new BinarySeatcherInteger();
+        System.out.println(binarySearcher.search(100000));
+
+        BinarySeatcherWrapper binarySearcherForWrapper = new BinarySeatcherWrapper();
+        System.out.println(binarySearcherForWrapper.search(100000));
 
 
     }
 
     private static List<Integer> initList(int size){
-        List<Integer> list = new ArrayList<Integer>();
+        List<Integer> list = new ArrayList<>();
 
         for(int i = 0; i<size;++i){
             list.add(new Random().nextInt());

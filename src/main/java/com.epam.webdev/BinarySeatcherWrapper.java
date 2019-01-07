@@ -1,6 +1,5 @@
 package com.epam.webdev;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Random;
@@ -17,10 +16,10 @@ public class BinarySeatcherWrapper {
             arr =  Arrays.asList(initArr(mid));
             arr.parallelStream().sorted(comparator = new CleaverWrapperComparator()).toArray();
 
-            if(comparator.getThreadscont()==1){
+            if(comparator.getThreadsCount()==1){
                 arr =  Arrays.asList(initArr(mid + 1));
                 arr.parallelStream().sorted(comparator = new CleaverWrapperComparator()).toArray();
-                if(comparator.getThreadscont()!=1){
+                if(comparator.getThreadsCount()!=1){
                     return mid;
                 }
                 left = mid + 1;

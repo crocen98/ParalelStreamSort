@@ -16,7 +16,7 @@ public class CleaverWrapperComparator implements Comparator<IntWrapper> {
     }
 
 
-    public int getThreadscont() {
+    public int getThreadsCount() {
         return threads.size();
     }
 
